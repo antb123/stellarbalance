@@ -18,7 +18,7 @@ ensure you have pip install stellar-base already and launch python or ipython an
 https://www.stellar.org/developers/guides/concepts/multi-sig.html
 and the lab
 https://www.stellar.org/laboratory/#txbuilder?params=eyJvcGVyYXRpb25zIjpbeyJpZCI6MCwiYXR0cmlidXRlcyI6e30sIm5hbWUiOiJzZXRPcHRpb25zIn1dfQ%3D%3D&network=test
-
+https://steemit.com/stellar/@mrbot/stellar-multi-sig-wallet-setup
 ```
 from stellar_base.address import Address
 from stellar_base.builder import Builder
@@ -75,6 +75,30 @@ b.submit()
 
 ```
 I explicitly signed with both and it should be sent....
+
+
+Finally if you want to bread it into 2 servers and send for the signing...
+
+```
+c = Builder('SBFQV5S2EBUKW53UDYSYRSES4CR3CSR6TJV4BO34DPKKDKCSSTN7KQOV')
+c.append_payment_op('GAY5DKIVAYZEESG6WVZCYPRFBN7O34U5U2CFZMGHX6MQEKJO5M57UYCQ',1)
+data = c.gen_xdr()
+# send text data to other server
+
+b = Builder('SDCGH6NN2ZD2LLKQDF5KMS2P7ZT7KGDDHZQRJGIWXMYGGNSCPCF5EVRN')
+b.import_from_xdr(data)
+b.sign()
+e = c.gen_xdr()
+
+# send text back to other server
+c = Builder('SBFQV5S2EBUKW53UDYSYRSES4CR3CSR6TJV4BO34DPKKDKCSSTN7KQOV')
+c.import_from_xdr(e)
+c.sign()
+c.submit()
+```
+
+
+
 
 
 
