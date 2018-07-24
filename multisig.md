@@ -16,8 +16,11 @@ private_keyb = "SDCGH6NN2ZD2LLKQDF5KMS2P7ZT7KGDDHZQRJGIWXMYGGNSCPCF5EVRN"
 ensure you have pip install stellar-base already and launch python or ipython and have a look at the official docs first.
 
 https://www.stellar.org/developers/guides/concepts/multi-sig.html
+
 and the lab
 https://www.stellar.org/laboratory/#txbuilder?params=eyJvcGVyYXRpb25zIjpbeyJpZCI6MCwiYXR0cmlidXRlcyI6e30sIm5hbWUiOiJzZXRPcHRpb25zIn1dfQ%3D%3D&network=test
+
+
 https://steemit.com/stellar/@mrbot/stellar-multi-sig-wallet-setup
 ```
 from stellar_base.address import Address
